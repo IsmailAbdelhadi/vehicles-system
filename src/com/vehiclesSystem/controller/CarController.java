@@ -24,4 +24,9 @@ public class CarController implements  VehicleController{
     public void getVehicleById(Vehicle vehicle) {
         databaseOperations.getVehicleById(vehicle);
     }
+
+    @Override
+    public void updateVehicle(Vehicle vehicle) {
+        databaseOperations.update(vehicle);
+    }
 }

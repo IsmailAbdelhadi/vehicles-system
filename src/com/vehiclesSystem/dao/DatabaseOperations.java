@@ -86,6 +86,23 @@ public class DatabaseOperations {
     }
 
 
+    public int update(Vehicle vehicle){
+        int affectedRows = 0;
+        try{
+            String UPDATE_QUERY = "UPDATE vehicle SET brand = ? WHERE id ='"+vehicle.getId()+"'";
+
+            preparedStatement = connection.prepareStatement(UPDATE_QUERY);
+            preparedStatement.setString(1,vehicle.getBrand());
+            affectedRows = preparedStatement.executeUpdate();
+            System.out.println("affectedRows "+affectedRows);
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        System.out.println(vehicle.getType()+" has been updated successfully !!");
+        return affectedRows;
+    }
+
 
 
 
